@@ -1,0 +1,65 @@
+DROP DATABASE students;
+CREATE DATABASE students;
+
+USE students;
+
+CREATE TABLE student(
+	StudNo int PRIMARY KEY AUTO_INCREMENT,
+    StudFname varchar(50),
+    StudLname varchar(50),
+    Major varchar(50),
+    gender VARCHAR(50),
+    HomeAddress varchar(10)
+);
+
+CREATE TABLE grade(
+	StudNo varchar(50),
+    SubjectCode varchar(50),
+    Grade decimal
+);
+
+CREATE TABLE subject(
+	SubjectCode int,
+    SubjectDescr varchar(50)
+);
+
+INSERT INTO student(StudNo,StudFName,StudLName,Major,Gender,HomeAddress) 
+VALUES 
+("S-101","Ana","Cruz","ECE","F","Malolos Bulacan"),
+("S-102","Hazel","Ponce","COE","F","Plaridel Bulacan"),
+("S-103","Cristov","Conclo","ECE","M","Malolos Bulacan"),
+("S-104","Aris","Clavio","COE","M","Pullian Bulacan"),
+("S-105","Honey","Pelayo","COE","F","Plaridel Bulacan"),
+("S-106","Carrie","Abao","ECE","F","Pullian Bulacan");
+
+INSERT INTO grade(StudNo,SubjectCode,Grade) 
+VALUES 
+("S-101","Chem 123","2.00"),
+("S-101","Math 122","1.00"),
+("S-101","Math 123","1.50"),
+("S-102","Chem 123","1.75"),
+("S-102","Math 122","1.25"),
+("S-102","Math 123","1.50"),
+("S-103","Chem 123","1.75"),
+("S-103","Math 122","1.25"),
+("S-103","Math 123","1.25"),
+("S-104","Chem 123","1.25"),
+("S-104","Math 122","2.25"),
+("S-104","Math 123","2.50"),
+("S-105","Chem 123","1.00"),
+("S-105","Math 123","1.25"),
+("S-105","Math 122","2.50"),
+("S-106","Chem 123","1.25"),
+("S-106","Math 122","1.50"),
+("S-106","Math 123","1.75");
+
+INSERT INTO subject(SubjectCode,SubjectDescr) 
+VALUES 
+("Chem 123","Chemistry"),
+("Math 122","Trigonometry"),
+("Chem 123","Algebra");
+
+
+1. SELECT * FROM student WHERE gender = "F" AND homeaddress="MALOLOS,BULACAN"
+2. SELECT * FROM graed WHERE SubjectCode = "MATH 122" AND grade >= 2.00
+3. SELECT * FROM 
